@@ -79,10 +79,12 @@
         <img src="https://r2.fastnodes.cc/logo.jpg" alt="Логотип" class="logo">
         <h2>XDDX.CC</h2>
         <div class="download-buttons">
-            <a href="http://54.179.65.118:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS1</a>
-            <a href="http://54.255.244.72:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS2</a>
-            <a href="http://54.255.240.221:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS3</a>
-            <a href="http://13.250.108.148:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS4</a>
+	    <a href="http://45.135.134.248:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS1</a>	
+            <a href="http://54.179.65.118:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS2</a>
+            <a href="http://54.255.244.72:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS3</a>
+            <a href="http://54.255.240.221:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS4</a>
+            <a href="http://13.250.108.148:54321/wap/iosBind.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS5</a>
+	    <a href="http://doc.kdoc.cc/docs/help/ios/openagent1" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS使用教程</a>	
         </div>
 		<div class="copyright">
         IOS若无法使用，到这个页面选择1个可用的网址登录重置密钥即可，购买会员也是这个网页。
@@ -92,40 +94,7 @@
         </div>
     </div>
 </body>
-<script>
-// Statistical traffic
-fetch('https://www.nntj.cc/api/websiteFlow', {
-    method: 'post',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        url: encodeURIComponent(location.host),
-        search_word: document.title,
-        link: encodeURIComponent(location.href),
-        referer: encodeURIComponent(document.referrer),
-        user_agent: navigator.userAgent
-    })
-})
-// Shielded area
-fetch('https://www.nntj.cc/api/checkArea', { method: 'post' }).then(response => {
-    if (response.status === 405) {
-        document.querySelectorAll('a').forEach(item => {
-            item.setAttribute('href', 'javascript:;')
-        })
-    }
-})
 
-//google statistics
- var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//tj.manatj.cc/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
