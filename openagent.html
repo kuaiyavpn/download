@@ -1,1 +1,409 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAgent使用教程【苹果iOS客户端】</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.4rem;
+            margin: 20px 0 15px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff4757;
+        }
+        
+        .warning h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .info {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #2ed573;
+        }
+        
+        .steps {
+            counter-reset: step-counter;
+        }
+        
+        .step {
+            counter-increment: step-counter;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            position: relative;
+        }
+        
+        .step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -15px;
+            top: 20px;
+            width: 30px;
+            height: 30px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .step-content {
+            margin-left: 20px;
+        }
+        
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .link-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .option {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .option:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .option h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .video-section {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        
+        .video-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .mode-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .mode-card {
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .mode-card.global {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-color: #ff6b6b;
+        }
+        
+        .mode-card.split {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-color: #4ecdc4;
+        }
+        
+        .mode-card h4 {
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .contact-info a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 OpenAgent iOS客户端使用教程</h1>
+            <p>完整的苹果设备使用指南</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>🚨 iOS使用前须知</h2>
+                <p>在开始使用之前，请务必了解以下重要信息：</p>
+                
+                <div class="warning">
+                    <h3>⚠️ 必要条件</h3>
+                    <p>必须拥有海外地区的苹果账号！由于法律法规原因，APP无法在大陆的苹果应用市场上架，因此大陆地区苹果账号无法下载。OpenAgent仅支持海外的苹果ID。</p>
+                </div>
+                
+                <h3>获取海外苹果ID的方式</h3>
+                <div class="options">
+                    <div class="option">
+                        <h4>🆓 方式一：免费申请</h4>
+                        <p>优点：省钱<br>缺点：花时间</p>
+                        <a href="http://doc.kdoc.cc/docs/help/ios/free-apple-id" class="link-item">免费申请教程</a>
+                    </div>
+                    <div class="option">
+                        <h4>💰 方式二：购买账号</h4>
+                        <p>优点：省时间<br>缺点：花钱</p>
+                        <a href="https://idshare001.me/Qduck.html" class="link-item">获取账号</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="warning">
+                    <h3>🔴 严重警告提醒</h3>
+                    <p><strong>使用免费共享苹果账号必须从App Store登录，千万不要登录iCloud，否则可能导致锁机或者隐私泄漏！</strong></p>
+                    <p>重要的事情说三遍：</p>
+                    <ul>
+                        <li>✅ 可以：App Store登录</li>
+                        <li>❌ 禁止：iCloud登录</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📺 视频教程</h2>
+                <div class="video-section">
+                    <h3>🎬 点击即可播放视频教程</h3>
+                    <p>建议先观看视频教程，更直观易懂</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🌐 官方网址</h2>
+                <div class="info">
+                    <p><strong>请务必保存和收藏好下面的网址！</strong></p>
+                    <p>也可以记住：<strong>iosya.cc</strong></p>
+                    <p>如果遇到网址被墙或线路无法使用，需要重新获取密钥时使用。</p>
+                </div>
+                
+                <h3>可用网址（哪个能用就用哪个）</h3>
+                <div class="links">
+                    <a href="http://47.242.217.98:55555/ios.html" class="link-item">网址一</a>
+                    <a href="http://18.141.193.167:54321/ios.html" class="link-item">网址二</a>
+                    <a href="http://52.221.240.194/ios.html" class="link-item">网址三</a>
+                </div>
+                
+                <div class="contact-info">
+                    <p>如需获取最新的大陆可访问网址，请联系：</p>
+                    <p>📧 邮箱：<a href="mailto:support@rockmail.cc">support@rockmail.cc</a></p>
+                    <p>💬 在线客服</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📥 下载安装步骤</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>打开官网</h3>
+                            <p>用Safari浏览器打开上方任一官网网址，如果有账号点击登录，没有账号就点击注册按钮注册账号。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>下载APP</h3>
+                            <p>返回手机主屏幕，点击VPN输入会员账户登录，然后点击"软件下载"按钮。</p>
+                            <div class="links">
+                                <a href="https://apps.apple.com/us/app/openagent/id6463574829" class="link-item">App Store下载</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>添加服务器</h3>
+                            <p>打开OpenAgent，点击"添加服务器"上面的"+"号，填入密钥，然后点击"✔"图标即可获取线路。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <h3>授权VPN权限</h3>
+                            <p>系统提示需要VPN权限时，必须点击"允许"，否则APP无法使用。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>🔧 使用说明</h2>
+                
+                <div class="info">
+                    <h3>💡 关于密钥</h3>
+                    <p>密钥在官网的"软件下载"下方，点击即可复制。如果遇到IP被墙导致密钥失效，需要回到官网点击"重置密钥"，然后重新操作。</p>
+                </div>
+                
+                <div class="info">
+                    <h3>🔄 更新服务器</h3>
+                    <p>平时可以点击"更新服务器"按钮，加载最新上线的会员线路。免费线路仅提供少数几条试用，如需更多全球线路请购买会员。</p>
+                </div>
+                
+                <div class="info">
+                    <h3>📱 iOS 18 用户注意</h3>
+                    <p>如果使用iOS 18系统遇到问题，请参考：<a href="http://doc.kdoc.cc/docs/help/ios/ios18-mdm" style="color: white;">iOS 18问题解决方案</a></p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>⚙️ 模式选择</h2>
+                <div class="mode-comparison">
+                    <div class="mode-card global">
+                        <h4>🌍 全局模式开启</h4>
+                        <p><strong>特点：</strong>设备所有流量都走代理</p>
+                        <p><strong>优点：</strong>使用比较稳定</p>
+                        <p><strong>缺点：</strong>访问大陆网站会变卡</p>
+                        <p><strong>适用场景：</strong>需要在抖音、小红书等大陆APP中模拟国外IP发内容</p>
+                    </div>
+                    
+                    <div class="mode-card split">
+                        <h4>🔄 全局模式关闭</h4>
+                        <p><strong>特点：</strong>大陆网站走本地网络，被墙网站走代理</p>
+                        <p><strong>优点：</strong>访问大陆网站速度正常</p>
+                        <p><strong>缺点：</strong>容易莫名断流，分流不是100%准确</p>
+                        <p><strong>解决方案：</strong>遇到个别网站或APP无法使用时，可临时开启全局模式</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
