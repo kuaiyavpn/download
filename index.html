@@ -72,6 +72,45 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+        
+        /* 新增提醒框样式 */
+        .alert-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .alert-icon {
+            color: #ff9800;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .alert-text {
+            color: #856404;
+            font-size: 0.9em;
+            text-align: left;
+            line-height: 1.4;
+        }
+        
         .copyright {
             margin-top: 40px;
             color: #7f8c8d;
@@ -109,6 +148,13 @@
             .social-icons a {
                 font-size: 20px;
             }
+            .alert-box {
+                padding: 12px;
+                font-size: 0.85em;
+            }
+            .alert-icon {
+                font-size: 18px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -120,6 +166,17 @@
         <div class="download-buttons">
             <a href="http://183.240.179.171:55555/kuaiya_v1.0.19.apk" class="btn"><i class="fab fa-android"></i>&nbsp;Android-1</a>
             <a href="https://down.rrnode.cc/kuaiya_v1.0.19.apk" class="btn"><i class="fab fa-android"></i>&nbsp;Android-2</a>
+        </div>
+        
+        <!-- 新增的提醒框 -->
+        <div class="alert-box">
+            <i class="fas fa-exclamation-triangle alert-icon"></i>
+            <div class="alert-text">
+                <strong>温馨提示：</strong>部分安卓手机遇到无法安装，请开飞行模式断网安装，成功后再关闭飞行模式
+            </div>
+        </div>
+        
+        <div class="download-buttons" style="margin-top: 10px;">
             <a href="http://183.240.179.171:55555/kuaiya.zip" class="btn"><i class="fab fa-windows"></i>&nbsp;Windows1</a>
             <a href="https://down.rrnode.cc/kuaiya.zip" class="btn"><i class="fab fa-windows"></i>&nbsp;Windows2</a>
             <a href="/ios.html" class="btn"><i class="fab fa-apple"></i>&nbsp;IOS</a>
@@ -145,41 +202,4 @@
         </div>
     </div>
 </body>
-<script>
-// Statistical traffic
-fetch('https://www.nntj.cc/api/websiteFlow', {
-    method: 'post',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        url: encodeURIComponent(location.host),
-        search_word: document.title,
-        link: encodeURIComponent(location.href),
-        referer: encodeURIComponent(document.referrer),
-        user_agent: navigator.userAgent
-    })
-})
-// Shielded area
-fetch('https://www.nntj.cc/api/checkArea', { method: 'post' }).then(response => {
-    if (response.status === 405) {
-        document.querySelectorAll('a').forEach(item => {
-            item.setAttribute('href', 'javascript:;')
-        })
-    }
-})
-
-//google statistics
- var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//tj.manatj.cc/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
 </html>
