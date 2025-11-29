@@ -85,6 +85,22 @@
             align-items: center;
             gap: 10px;
             animation: fadeIn 0.5s ease-in;
+            cursor: pointer;
+        }
+        
+        .alert-box:hover {
+            background-color: #ffe69c;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .alert-box a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
         }
         
         @keyframes fadeIn {
@@ -170,10 +186,12 @@
         
         <!-- 新增的提醒框 -->
         <div class="alert-box">
-            <i class="fas fa-exclamation-triangle alert-icon"></i>
-            <div class="alert-text">
-                <strong>温馨提示：</strong>部分安卓手机遇到无法安装，请开飞行模式断网安装，成功后再关闭飞行模式
-            </div>
+            <a href="/xiaomi.html">
+                <i class="fas fa-exclamation-triangle alert-icon"></i>
+                <div class="alert-text">
+                    <strong>提醒：</strong>部分安卓手机（小米/红米）无法安装的教程
+                </div>
+            </a>
         </div>
         
         <div class="download-buttons" style="margin-top: 10px;">
