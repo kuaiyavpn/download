@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安卓APP无法安装教程</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .alert-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+        }
+
+        .alert-box strong {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #333;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step:hover {
+            transform: translateX(5px);
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+
+        .step-content {
+            flex: 1;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.8;
+            padding-top: 3px;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            color: #856404;
+            font-size: 15px;
+        }
+
+        .success-icon {
+            text-align: center;
+            font-size: 48px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
+
+            .alert-box {
+                padding: 15px;
+                font-size: 14px;
+            }
+
+            .alert-box strong {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 18px;
+                padding-left: 12px;
+            }
+
+            .section p {
+                font-size: 14px;
+                padding-left: 12px;
+            }
+
+            .step {
+                padding: 15px;
+            }
+
+            .step-number {
+                width: 28px;
+                height: 28px;
+                line-height: 28px;
+                font-size: 14px;
+                margin-right: 10px;
+            }
+
+            .step-content {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .note {
+                padding: 12px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 安卓APP安装教程</h1>
+        <p class="subtitle">遇到安装问题？请按照以下步骤操作</p>
+
+        <div class="alert-box">
+            <strong>⚠️ 快速解决方法</strong>
+            部分安卓手机遇到无法安装，请<strong>开启飞行模式断网安装</strong>，安装成功后再关闭飞行模式。
+        </div>
+
+        <div class="section">
+            <div class="section-title">小米/澎湃OS手机专属解决方案</div>
+            <p style="color: #666; margin-bottom: 20px; padding-left: 15px;">如果开启飞行模式后仍无法安装，主要是因为APP被小米系统拦截了，需要关闭"启用系统优化"。</p>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-content">打开手机的<span class="highlight">【设置】</span>应用</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-content">点击<span class="highlight">【我的设备】</span>，然后向下滑动，点击<span class="highlight">【全部参数与信息】</span></span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-content">在全部参数界面里，连续点击<span class="highlight">【OS版本】</span>区域<strong>七次</strong>，开启开发者模式</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <span class="step-content">返回<span class="highlight">【设置】</span>界面，向下滑动到最底部，点击<span class="highlight">【更多设置】</span></span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">5</span>
+                <span class="step-content">继续向下滑动到最下面，点击<span class="highlight">【开发者选项】</span></span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">6</span>
+                <span class="step-content">在开发者选项中，滑动到最底部，找到<span class="highlight">【启用系统优化】</span>，将其<strong>关闭</strong></span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">7</span>
+                <span class="step-content">返回安装包，重新点击安装APP即可成功安装</span>
+            </div>
+        </div>
+
+        <div class="note">
+            💡 <strong>温馨提示：</strong>安装完成后，建议重新开启"启用系统优化"以保持系统稳定性。
+        </div>
+
+        <div class="success-icon">✅</div>
+    </div>
+</body>
+</html>
